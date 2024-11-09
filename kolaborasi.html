@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kolaborasi</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -13,6 +14,7 @@
             background-size: cover;
             display: flex;
         }
+
         .sidebar {
             width: 250px;
             height: 100vh;
@@ -24,16 +26,19 @@
             align-items: center;
             padding-top: 20px;
         }
+
         .sidebar img {
             width: 80px;
             height: 80px;
             border-radius: 50%;
             margin-bottom: 10px;
         }
+
         .sidebar h2 {
             font-size: 18px;
             margin-bottom: 30px;
         }
+
         .sidebar a {
             text-decoration: none;
             color: white;
@@ -45,17 +50,22 @@
             box-sizing: border-box;
             transition: background-color 0.3s ease;
         }
+
         .sidebar a:hover {
             background-color: rgba(9, 31, 91, 0.7);
             border-radius: 5px;
         }
+
         .sidebar a i {
             margin-right: 10px;
         }
+
         .content {
             margin-left: 250px;
             padding: 20px;
+            width: calc(100% - 250px);
         }
+
         .content h1 {
             font-size: 16px;
             color: rgb(0, 0, 0);
@@ -68,12 +78,15 @@
             border-radius: 20px;
             width: fit-content;
         }
+
         .content h1 i {
             margin-left: 10px;
         }
+
         .task-list {
             margin-top: 20px;
         }
+
         .task-item {
             background-color: #D0E4FF;
             border-radius: 10px;
@@ -86,6 +99,7 @@
             align-items: center;
             transition: background-color 0.3s ease;
         }
+
         .task-item:hover {
             background-color: #A0C4FF;
         }
@@ -105,6 +119,7 @@
             width: calc(90% - 250px);
             box-sizing: border-box;
         }
+
         .add-task:hover {
             background-color: #091F5B;
         }
@@ -112,16 +127,18 @@
     </style>
 </head>
 <body>
+
     <div class="sidebar">
         <img alt="User Profile Picture" height="80" src="https://storage.googleapis.com/a1aa/image/fM1E3QpeKIivJEoTNbzljAHsDIKN7cN3c4i7zEI9FRbRt1tTA.jpg" width="80"/>
         <h2>Profil Saya</h2>
-        <a href="#"><i class="fas fa-calendar-day"></i> Hari Ini</a>
+        <a href="hari_ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
         <a href="#"><i class="fas fa-calendar-alt"></i> Mendatang</a>
         <a href="#"><i class="fas fa-check"></i> Tugas Selesai</a>
         <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
         <a href="#"><i class="fas fa-clock"></i> Waktu</a>
-        <a href="#"><i class="fas fa-users"></i> Kolaborasi</a>
+        <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
     </div>
+
     <div class="content">
         <h1>Kolaborasi | <i class="fas fa-share-alt" style="margin-right: 10px;"></i> Bagikan</h1>
         <div class="task-item">
@@ -130,6 +147,7 @@
             + Tambah tugas
         </div>
     </div>
+
     <script>
         const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
         checkboxes.forEach(checkbox => {
