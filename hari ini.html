@@ -302,7 +302,7 @@
             const taskTime = document.getElementById('taskTime').value;
 
             if (taskName && taskDate && taskTime) {
-                const formattedTime = formatTimeToAMPM(taskTime); // Format time to AM/PM
+                const formattedTime = formatTimeToAMPM(taskTime);
 
                 const taskList = document.querySelector('.task-list');
                 const newTask = document.createElement('div');
@@ -340,14 +340,13 @@
             document.getElementById('popupCalendar').style.display = 'flex';
         });
 
-        // Function to convert time to 12-hour AM/PM format
         function formatTimeToAMPM(time) {
             const [hours, minutes] = time.split(':');
             const hoursInt = parseInt(hours, 10);
             const isPM = hoursInt >= 12;
-            const hours12 = hoursInt % 12 || 12; // Convert to 12-hour format
+            const hours12 = hoursInt % 12 || 12;
             const ampm = isPM ? 'PM' : 'AM';
-            return `${hours12}:${minutes} ${ampm}`;
+            return '$ {hours12}: ${minutes} ${ampm}';
         }
     </script>
 
