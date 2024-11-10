@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mendatang</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('image.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(9, 31, 91, 0.5);
+            color: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(9, 31, 91, 0.7);
+            border-radius: 5px;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+
+        .content {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 50px;
+        }
+
+        .heading {
+            font-size: 24px;
+            font-weight: 600; /* Bold */
+            color: white;
+            margin-bottom: 60px; /* Digeser lebih ke bawah */
+        }
+
+        .task-board-container {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto; /* Enable horizontal scrolling secara manual */
+            margin-top: 50px; /* Memberikan jarak antara judul dan board */
+        }
+
+        .board {
+            background-color: #4B8BF0;
+            color: white;
+            width: 350px; /* Lebar board lebih kecil */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            flex-shrink: 0;
+        }
+
+        .board-header {
+            font-size: 20px;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .task-list {
+            margin-top: 10px;
+        }
+
+        .task-item {
+            background-color: #D0E4FF;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .task-item:hover {
+            background-color: #A0C4FF;
+        }
+
+        .task-item div {
+            display: flex;
+            align-items: center;
+        }
+
+        .task-item input[type="checkbox"] {
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #FFF9EF;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+            position: relative;
+            margin-right: 10px;
+        }
+
+        .task-item input[type="checkbox"]:checked {
+            background-color: #3498DB;
+        }
+
+        .task-item input[type="checkbox"]:checked::before {
+            content: "\f00c";
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            color: white;
+            font-size: 12px;
+        }
+
+        .task-item input[type="checkbox"]:checked + label {
+            text-decoration: line-through; /* Coret teks jika sudah dicentang */
+            color: #B0BEC5; /* Ubah warna teks menjadi abu-abu */
+        }
+
+        .add-task {
+            background-color: #FFF9EF;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            color: black;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .add-task:hover {
+            background-color: #091F5B;
+        }
+
+        .add-board {
+            font-size: 30px;
+            cursor: pointer;
+            color: #FFF;
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .add-board:hover {
+            color: #FFD700;
+        }
+
+        .remove-task {
+            cursor: pointer;
+            color: black;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+
+        .remove-task:hover {
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+  <div class="sidebar">
+      <img alt="User Profile Picture" height="80" src="https://storage.googleapis.com/a1aa/image/fM1E3QpeKIivJEoTNbzljAHsDIKN7cN3c4i7zEI9FRbRt1tTA.jpg" width="80"/>
+      <h2>Profil Saya</h2>
+      <a href="#"><i class="fas fa-calendar-day"></i> Hari Ini</a>
+      <a href="#"><i class="fas fa-calendar-alt"></i> Mendatang</a>
+      <a href="#"><i class="fas fa-check"></i> Tugas Selesai</a>
+      <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
+      <a href="#"><i class="fas fa-clock"></i> Waktu</a>
+      <a href="#"><i class="fas fa-users"></i> Kolaborasi</a>
+  </div>
+
+  <div class="content">
+      <div class="heading">7 Hari Mendatang</div>
+      <div class="task-board-container" id="boardContainer">
+          <!-- Senin Board -->
+          <div class="board">
+              <div class="board-header">Senin</div>
+              <div class="task-list">
+                  <!-- Belum ada task -->
+                  <div class="add-task">Tambah Tugas</div>
+              </div>
+              <i class="fas fa-plus add-board"></i>
+          </div>
+
+          <div id="popupCalendar" class="popup-calendar">
+            <div class="popup-content">
+                <h2>Tambah Tugas</h2>
+                <label for="taskName">Nama Tugas:</label>
+                <input type="text" id="taskName" />
+        
+                <label for="taskDate">Tanggal:</label>
+                <input type="date" id="taskDate" />
+        
+                <label for="taskTime">Waktu:</label>
+                <input type="time" id="taskTime" />
+        
+                <div class="buttons">
+                    <button class="cancel" onclick="closePopup()">Batal</button>
+                    <button class="ok" onclick="addNewTask()">OK</button>
+                </div>
+            </div>
+        </div>
+
+          <!-- Selasa Board -->
+          <div class="board">
+              <div class="board-header">Selasa</div>
+              <div class="task-list">
+                  <!-- Belum ada task -->
+                  <div class="add-task">Tambah Tugas</div>
+              </div>
+              <i class="fas fa-plus add-board"></i>
+          </div>
+      </div>
+
+      <!-- Button untuk menambah board -->
+      <div class="add-board" id="addBoardBtn"><i class="fas fa-plus"></i></div>
+  </div>
+
+  <script>
+    const addBoardBtn = document.getElementById('addBoardBtn');
+    const boardContainer = document.getElementById('boardContainer');
+
+    let dayNames = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
+    let currentDayIndex = 2; // Menyesuaikan posisi hari yang sudah ada (misal mulai dari hari Rabu)
+
+    addBoardBtn.addEventListener('click', function() {
+        // Buat board baru tanpa tugas
+        const newBoard = document.createElement('div');
+        newBoard.classList.add('board');
+        newBoard.innerHTML = `
+            <div class="board-header">${dayNames[(currentDayIndex + 1) % dayNames.length]}</div>
+            <div class="task-list">
+                <!-- Task baru belum ada -->
+                <div class="add-task">Tambah Tugas</div>
+            </div>
+            <i class="fas fa-plus add-board"></i>
+        `;
+        currentDayIndex++;
+        boardContainer.appendChild(newBoard);
+    });
+
+    // Event listener untuk menambah task setelah klik "Tambah Tugas"
+    document.addEventListener('click', function(e) {
+        if (e.target && e.target.classList.contains('add-task')) {
+            const taskList = e.target.parentElement;
+            const newTask = document.createElement('div');
+            newTask.classList.add('task-item');
+            newTask.innerHTML = `
+                <div>
+                    <input type="checkbox">
+                    <label>New Task</label>
+                </div>
+                <span>08:00 AM</span>
+            `;
+            taskList.insertBefore(newTask, e.target); // Menambahkan task di atas tombol
+        }
+    });
+
+    function removeTask(element) {
+            const taskItem = element.closest('.task-item');
+            taskItem.remove();
+        }
+
+        function markAsCompleted(checkbox) {
+            const taskItem = checkbox.closest('.task-item');
+            taskItem.classList.toggle('completed', checkbox.checked);
+        }
+
+        let currentTaskList; // Menyimpan referensi ke daftar tugas saat ini
+
+function addNewTask() {
+    const taskName = document.getElementById('taskName').value;
+    const taskDate = document.getElementById('taskDate').value;
+    const taskTime = document.getElementById('taskTime').value;
+
+    if (taskName && taskDate && taskTime) {
+        const formattedTime = formatTimeToAMPM(taskTime); // Format waktu ke AM/PM
+
+        const newTask = document.createElement('div');
+        newTask.classList.add('task-item');
+        newTask.innerHTML = `
+            <div>
+                <input type="checkbox" onclick="markAsCompleted(this)" />
+                <label>${taskName}</label>
+            </div>
+            <span>${taskDate}, ${formattedTime}</span>
+            <i class="fas fa-times remove-task" onclick="removeTask(this)"></i>
+        `;
+        currentTaskList.insertBefore(newTask, currentTaskList.querySelector('.add-task')); // Menambahkan tugas di atas tombol
+        closePopup();
+    }
+}
+
+function closePopup() {
+    document.getElementById('popupCalendar').style.display = 'none';
+}
+
+document.addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('add-task')) {
+        currentTaskList = e.target.parentElement; // Menyimpan referensi ke daftar tugas saat ini
+        document.getElementById('popupCalendar').style.display = 'flex'; // Tampilkan pop-up
+    }
+});
+    
+  </script>
+
+</body>
+</html>
