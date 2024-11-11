@@ -102,16 +102,18 @@
         }
 
         .task-item {
-            background-color: #FFF9EF;
-            border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 10px;
-            margin-top: 16px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
+    background-color: #FFF9EF;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 16px; /* Meningkatkan margin-bottom untuk jarak lebih besar */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    
+}
+
+
 
         .task-item:hover {
             background-color: #A0C4FF;
@@ -142,7 +144,7 @@
             content: "\f00c";
             font-family: "Font Awesome 5 Free";
             font-weight: 900;
-            color: white;
+            color: rgb(14, 13, 13);
             font-size: 12px;
         }
 
@@ -167,7 +169,7 @@
 
 
         .add-task:hover {
-            background-color: #091F5B;
+            background-color: #A0C4FF;
         }
 
         .add-board {
@@ -285,6 +287,33 @@
 .taks-item {
 margin-bottom: 16px;
 }
+
+
+/* Mengurangi lebar board */
+.board {
+    width: 300px; /* Ubah dari 350px menjadi 300px */
+}
+
+/* Mengurangi ukuran font pada header board */
+.board-header {
+    font-size: 18px; /* Ubah dari 20px menjadi 16px */
+}
+
+/* Mengurangi ukuran font pada task-item */
+.task-item {
+    padding: 10px; /* Sesuaikan padding jika diperlukan */
+}
+
+/* Mengurangi ukuran font pada task item */
+.task-item label {
+    font-size: 14px; /* Ubah dari ukuran semula menjadi 14px */
+}
+
+.add-task {
+    font-size: 14px; /* Ubah dari 16px menjadi 14px */
+}
+
+
     </style>
 </head>
 <body>
@@ -310,7 +339,7 @@ margin-bottom: 16px;
             <div class="task-list">
                 <!-- Daftar task item -->
             </div>
-            <div class="add-task">Tambah Tugas</div>
+            <div class="add-task">+ Tambah Tugas</div>
             <i class="fas fa-plus add-board"></i>
         </div>
         
@@ -321,7 +350,7 @@ margin-bottom: 16px;
               <div class="task-list">
                 <!-- Daftar task item -->
             </div>
-            <div class="add-task">Tambah Tugas</div>
+            <div class="add-task">+ Tambah Tugas</div>
             <i class="fas fa-plus add-board"></i>
         </div>  
                 
