@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ProActive Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-section">
+      <div class="carousel">
+        <button class="arrow left-arrow" onclick="changeSlide(-1)">&#10094;</button>
+        <img src="img/illustration1.png" alt="Illustration" class="illustration">
+        <img src="img/illustration2.png" alt="Illustration" class="illustration" style="display: none;">
+        <img src="img/illustration3.png" alt="Illustration" class="illustration" style="display: none;">
+        <button class="arrow right-arrow" onclick="changeSlide(1)">&#10095;</button>
+      </div>
+      <p class="description">fitur to-do list yang sederhana namun kuat, ProActive mempermudah perencanaan harian hingga pengelolaan proyek besar.</p>
+    </div>
+
+    <div class="right-section">
+      <div class="content">
+        <div class="logo">
+          <img src="img/logo.png" alt="ProActive Logo">
+        </div>
+        <h1>Buat akun</h1>
+        <p>Silahkan lengkapi data dibawah ini untuk membuat akun</p>
+
+        <form id="daftar-form" action="masuk.html" method="post">
+          <label for="nama">Nama</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama">
+          
+          <label for="No.Handphone">No.Handphone</label>
+          <input type="tel" id="nama" name="nama" placeholder="No.Handphone">
+
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Password">
+
+          <label for="password">Konfirmasi Password</label>
+          <input type="password" id="password" name="password" placeholder="Password">
+
+          <button type="submit" class="daftar-button">Daftar</button>
+          
+          <div class="separator">atau</div>
+          
+          <button type="button" class="google-login">
+            <img src="img/google-icon.png" alt="Google Icon">
+            Lanjutkan dengan Google
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+    
