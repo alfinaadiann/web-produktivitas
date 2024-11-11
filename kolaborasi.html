@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kolaborasi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <title>Semua Tugas</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -61,47 +61,30 @@
         }
 
         .content {
-            margin-left: 250px;
-            padding: 20px;
-            width: calc(100% - 250px);
+          margin-left: 300px;
+          padding: 20px;
+          width: calc(100% - 250px);
         }
 
         .content h1 {
-            font-size: 16px;
+          font-size: 16px;
             color: rgb(0, 0, 0);
             display: flex;
             align-items: center;
             background-color: #D0E4FF;
-            padding: 5px 10px;
-            margin-left: 20px;
+            padding: 5px 20px;
             margin-right: 20px;
             border-radius: 20px;
             width: fit-content;
         }
 
-        .content h1 i {
-            margin-left: 10px;
-        }
-
-        .task-list {
-            margin-top: 20px;
-        }
-
-        .task-item {
+        .task-container {
+            width: 100%;
+            max-width: 850px;
+            height: 75vh;
             background-color: #D0E4FF;
             border-radius: 10px;
-            padding: 260px;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            margin-right: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color 0.3s ease;
-        }
-
-        .task-item:hover {
-            background-color: #A0C4FF;
+            padding: 20px;
         }
 
         .add-task {
@@ -115,50 +98,40 @@
             transition: background-color 0.3s ease;
             position: fixed;
             bottom: 65px;
-            right: 70px;
-            width: calc(90% - 250px);
+            right: 85px;
+            width: calc(75% - 100px);
             box-sizing: border-box;
         }
 
         .add-task:hover {
             background-color: #A0C4FF;
         }
-
+        
     </style>
 </head>
 <body>
 
-    <div class="sidebar">
-        <img alt="User Profile Picture" height="80" src="https://storage.googleapis.com/a1aa/image/fM1E3QpeKIivJEoTNbzljAHsDIKN7cN3c4i7zEI9FRbRt1tTA.jpg" width="80"/>
-        <h2>Profil Saya</h2>
-        <a href="hari_ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
-        <a href="#"><i class="fas fa-calendar-alt"></i> Mendatang</a>
-        <a href="#"><i class="fas fa-check"></i> Tugas Selesai</a>
-        <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
-        <a href="#"><i class="fas fa-clock"></i> Waktu</a>
-        <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
-    </div>
+  <div class="sidebar">
+    <img alt="User Profile Picture" height="80" src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg" width="80"/>
+    <h2>Profil Saya</h2>
+    <a href="hari ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
+    <a href="mendatang.html"><i class="fas fa-calendar-alt"></i> Mendatang</a>
+    <a href="tugas selesai.html"><i class="fas fa-check"></i> Tugas Selesai</a>
+    <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
+    <a href="#"><i class="fas fa-clock"></i> Waktu</a>
+    <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
+</div>
 
     <div class="content">
-        <h1>Kolaborasi | <i class="fas fa-share-alt" style="margin-right: 10px;"></i> Bagikan</h1>
-        <div class="task-item">
-        </div>
-        <div class="add-task">
-            + Tambah tugas
+        <h1>Kolaborasi | &nbsp;<i class="fas fa-share-alt" style="margin-right: 10px;"></i> Bagikan</h1>
+        <div class="task-container">
+            
+            <!-- Add Task -->
+            <div class="add-task">
+                + Tambah tugas
+            </div>
         </div>
     </div>
 
-    <script>
-        const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                const taskItem = checkbox.closest('.task-item');
-                if (checkbox.checked) {
-                    taskItem.classList.add('completed');
-                } 
-            });
-        });
-
-    </script>
 </body>
 </html>
