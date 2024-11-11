@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        /* Style yang sama seperti sebelumnya */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -105,6 +106,7 @@
             border-radius: 10px;
             padding: 15px;
             margin-bottom: 10px;
+            margin-top: 16px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -179,16 +181,96 @@
             color: #FFD700;
         }
 
-        .remove-task {
-            cursor: pointer;
-            color: black;
-            font-size: 18px;
-            margin-left: 10px;
+         /* Styles for the popup calendar */
+
+         .popup-calendar {
+            display: none;
+         }
+
+         .popup-calendar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
 
-        .remove-task:hover {
-            color: gray;
+        .popup-content {
+            background-color: #b3d1ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            position: relative;
         }
+
+        .popup-content h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .popup-content label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .popup-content input, .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons .cancel {
+            background-color: #00aaff;
+            color: #fff;
+        }
+
+        .buttons .ok {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .task-details {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Atur jarak antar elemen dalam task details */
+}
+
+.task-details i.remove-task {
+    margin-left: 10px; /* Tambahkan jarak sesuai kebutuhan */
+}
+
+.task-item.completed label,
+.task-item.completed .task-details span {
+    text-decoration: line-through;
+    color: #B0BEC5; /* Ubah warna teks menjadi abu-abu */
+}
+
+.taks-item {
+margin-bottom: 16px;
+}
     </style>
 </head>
 <body>
@@ -209,32 +291,14 @@
       <div class="task-board-container" id="boardContainer">
           <!-- Senin Board -->
           <div class="board">
-              <div class="board-header">Senin</div>
-              <div class="task-list">
-                  <!-- Belum ada task -->
-                  <div class="add-task">Tambah Tugas</div>
-              </div>
-              <i class="fas fa-plus add-board"></i>
-          </div>
-
-          <div id="popupCalendar" class="popup-calendar">
-            <div class="popup-content">
-                <h2>Tambah Tugas</h2>
-                <label for="taskName">Nama Tugas:</label>
-                <input type="text" id="taskName" />
-        
-                <label for="taskDate">Tanggal:</label>
-                <input type="date" id="taskDate" />
-        
-                <label for="taskTime">Waktu:</label>
-                <input type="time" id="taskTime" />
-        
-                <div class="buttons">
-                    <button class="cancel" onclick="closePopup()">Batal</button>
-                    <button class="ok" onclick="addNewTask()">OK</button>
-                </div>
+            <div class="board-header">Senin</div>
+            <div class="task-list">
+                <!-- Daftar task item -->
             </div>
+            <div class="add-task">Tambah Tugas</div>
+            <i class="fas fa-plus add-board"></i>
         </div>
+        
 
           <!-- Selasa Board -->
           <div class="board">
@@ -247,97 +311,130 @@
           </div>
       </div>
 
-      <!-- Button untuk menambah board -->
       <div class="add-board" id="addBoardBtn"><i class="fas fa-plus"></i></div>
   </div>
+
+  <div id="popupCalendar" class="popup-calendar">
+    <div class="popup-content">
+        <h2>Tambah Tugas</h2>
+        <label for="taskName">Nama Tugas:</label>
+        <input type="text" id="taskName" />
+
+        <label for="taskDate">Tanggal:</label>
+        <input type="date" id="taskDate" />
+
+        <label for="taskTime">Waktu:</label>
+        <input type="time" id="taskTime" />
+
+        <div class="buttons">
+            <button class="cancel" onclick="closePopup()">Batal</button>
+            <button class="ok" onclick="addNewTask()">OK</button>
+        </div>
+    </div>
+</div>
+
+<body onload="closePopup()"></body>
 
   <script>
     const addBoardBtn = document.getElementById('addBoardBtn');
     const boardContainer = document.getElementById('boardContainer');
+    let currentTaskList = null;
 
     let dayNames = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
-    let currentDayIndex = 2; // Menyesuaikan posisi hari yang sudah ada (misal mulai dari hari Rabu)
+    let currentDayIndex = 2;
 
     addBoardBtn.addEventListener('click', function() {
-        // Buat board baru tanpa tugas
-        const newBoard = document.createElement('div');
-        newBoard.classList.add('board');
-        newBoard.innerHTML = `
-            <div class="board-header">${dayNames[(currentDayIndex + 1) % dayNames.length]}</div>
-            <div class="task-list">
-                <!-- Task baru belum ada -->
-                <div class="add-task">Tambah Tugas</div>
-            </div>
-            <i class="fas fa-plus add-board"></i>
-        `;
-        currentDayIndex++;
-        boardContainer.appendChild(newBoard);
+    const newBoard = document.createElement('div');
+    newBoard.classList.add('board');
+    newBoard.innerHTML = `
+        <div class="board-header">${dayNames[(currentDayIndex + 1) % dayNames.length]}</div>
+        <div class="task-list"></div>
+        <div class="add-task">Tambah Tugas</div>
+        <i class="fas fa-plus add-board"></i>
+    `;
+    currentDayIndex++;
+    boardContainer.appendChild(newBoard);
+
+    // Menambahkan event listener ke tombol "Tambah Tugas"
+    newBoard.querySelector('.add-task').addEventListener('click', function() {
+        currentTaskList = newBoard.querySelector('.task-list'); // Set current task list
+        document.getElementById('popupCalendar').style.display = 'flex';
+    });
+});
+
+
+
+    document.querySelectorAll('.add-task').forEach(function(addTaskButton) {
+        addTaskButton.addEventListener('click', function() {
+            currentTaskList = this.parentElement; // Set current task list
+            document.getElementById('popupCalendar').style.display = 'flex';
+        });
     });
 
-    // Event listener untuk menambah task setelah klik "Tambah Tugas"
-    document.addEventListener('click', function(e) {
-        if (e.target && e.target.classList.contains('add-task')) {
-            const taskList = e.target.parentElement;
+    function addNewTask() {
+        const taskName = document.getElementById('taskName').value;
+        const taskDate = document.getElementById('taskDate').value;
+        const taskTime = document.getElementById('taskTime').value;
+
+        if (taskName && taskDate && taskTime && currentTaskList) {
+            const formattedTime = formatTimeToAMPM(taskTime);
+
             const newTask = document.createElement('div');
             newTask.classList.add('task-item');
             newTask.innerHTML = `
                 <div>
-                    <input type="checkbox">
-                    <label>New Task</label>
+                    <input type="checkbox" onclick="markAsCompleted(this)" />
+                    <label>${taskName}</label>
                 </div>
-                <span>08:00 AM</span>
+                <div class="task-details">
+                    <span>${taskDate}, ${formattedTime}</span>
+                    <i class="fas fa-times remove-task" onclick="removeTask(this)"></i>
+                </div>
             `;
-            taskList.insertBefore(newTask, e.target); // Menambahkan task di atas tombol
+            currentTaskList.appendChild(newTask);
+            closePopup();
         }
-    });
+    }
 
     function removeTask(element) {
-            const taskItem = element.closest('.task-item');
-            taskItem.remove();
-        }
-
-        function markAsCompleted(checkbox) {
-            const taskItem = checkbox.closest('.task-item');
-            taskItem.classList.toggle('completed', checkbox.checked);
-        }
-
-        let currentTaskList; // Menyimpan referensi ke daftar tugas saat ini
-
-function addNewTask() {
-    const taskName = document.getElementById('taskName').value;
-    const taskDate = document.getElementById('taskDate').value;
-    const taskTime = document.getElementById('taskTime').value;
-
-    if (taskName && taskDate && taskTime) {
-        const formattedTime = formatTimeToAMPM(taskTime); // Format waktu ke AM/PM
-
-        const newTask = document.createElement('div');
-        newTask.classList.add('task-item');
-        newTask.innerHTML = `
-            <div>
-                <input type="checkbox" onclick="markAsCompleted(this)" />
-                <label>${taskName}</label>
-            </div>
-            <span>${taskDate}, ${formattedTime}</span>
-            <i class="fas fa-times remove-task" onclick="removeTask(this)"></i>
-        `;
-        currentTaskList.insertBefore(newTask, currentTaskList.querySelector('.add-task')); // Menambahkan tugas di atas tombol
-        closePopup();
+        const taskItem = element.closest('.task-item');
+        taskItem.remove();
     }
-}
 
-function closePopup() {
-    document.getElementById('popupCalendar').style.display = 'none';
-}
-
-document.addEventListener('click', function(e) {
-    if (e.target && e.target.classList.contains('add-task')) {
-        currentTaskList = e.target.parentElement; // Menyimpan referensi ke daftar tugas saat ini
-        document.getElementById('popupCalendar').style.display = 'flex'; // Tampilkan pop-up
+    function markAsCompleted(checkbox) {
+        const taskItem = checkbox.closest('.task-item');
+        taskItem.classList.toggle('completed', checkbox.checked);
     }
-});
+
+    function closePopup() {
+        document.getElementById('popupCalendar').style.display = 'none';
+        currentTaskList = null;
+    }
+
+    // Pastikan popup hanya muncul saat tombol diklik
+    document.querySelectorAll('.add-task').forEach(function(addTaskButton) {
+        addTaskButton.addEventListener('click', function() {
+            currentTaskList = this.parentElement; // Set current task list
+            document.getElementById('popupCalendar').style.display = 'flex';
+        });
+    });
+
+    function formatTimeToAMPM(time) {
+        const [hours, minutes] = time.split(':');
+        const hoursInt = parseInt(hours, 10);
+        const isPM = hoursInt >= 12;
+        const hours12 = hoursInt % 12 || 12;
+        const ampm = isPM ? 'PM' : 'AM';
+        return `${hours12}:${minutes} ${ampm}`;
+    }
     
   </script>
 
 </body>
 </html>
+
+    
+    
+    
+    
+   
