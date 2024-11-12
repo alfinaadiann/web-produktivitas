@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semua Tugas</title>
+    <title>Tugas Selesai</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -79,9 +79,8 @@
         }
 
         .task-container {
-            width: 100%;
-            max-width: 850px;
-            height: 75vh;
+            width: 90%;
+            height: 78vh;
             background-color: #D0E4FF;
             border-radius: 10px;
             padding: 20px;
@@ -136,8 +135,8 @@
             transition: background-color 0.3s ease;
             position: fixed;
             bottom: 65px;
-            right: 85px;
-            width: calc(75% - 100px);
+            right: 135px;
+            width: 65%;
             box-sizing: border-box;
         }
 
@@ -164,7 +163,6 @@
         <h1>Semua Tugas</h1>
         <div class="task-container">
             <!-- Hari Ini -->
-
             <style>
                 .task-item input[type="checkbox"] {
                     appearance: none;
@@ -183,6 +181,10 @@
                 }
 
                 .task-item.completed {
+                    text-decoration: line-through;
+                    color: gray;
+                }
+                .task-item.completed .task-time {
                     text-decoration: line-through;
                     color: gray;
                 }
