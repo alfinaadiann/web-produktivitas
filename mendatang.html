@@ -82,7 +82,7 @@
         }
 
         .board {
-            background-color: #D0E4FF;
+            background-color: #BAD6EB;
             color: black;
             width: 350px; /* Lebar board lebih kecil */
             padding: 20px;
@@ -115,9 +115,7 @@
 
 
 
-        .task-item:hover {
-            background-color: #A0C4FF;
-        }
+        
 
         .task-item div {
             display: flex;
@@ -128,7 +126,7 @@
             appearance: none;
             width: 20px;
             height: 20px;
-            border: 2px solid #FFF9EF;
+            border: 2px solid #B0BEC5;
             border-radius: 50%;
             outline: none;
             cursor: pointer;
@@ -152,6 +150,18 @@
             text-decoration: line-through; /* Coret teks jika sudah dicentang */
             color: #B0BEC5; /* Ubah warna teks menjadi abu-abu */
         }
+
+        /* Mengurangi ukuran font pada task item */
+.task-item label {
+    font-size: 13px; /* Ukuran font lebih kecil */
+}
+
+/* Menambahkan gaya untuk tanggal dan waktu */
+.task-item .task-details span {
+    font-size: 12px; /* Ukuran font lebih kecil */
+    color: #777; /* Warna untuk tanggal dan waktu */
+}
+
 
         .add-task {
     background-color: #FFF9EF;
@@ -313,6 +323,30 @@ margin-bottom: 16px;
     font-size: 14px; /* Ubah dari 16px menjadi 14px */
 }
 
+.task-item input[type="checkbox"] {
+                    appearance: none;
+                    width: 15px;
+                    height: 15px;
+                    border: 2px solid #FFF9EF;
+                    border-radius: 50%;
+                    outline: none;
+                    cursor: pointer;
+                    position: relative;
+                    margin-right: 10px;
+                }
+
+                .task-item input[type="checkbox"]:checked {
+                    background-color: #000000;
+                }
+
+                .task-item.completed {
+                    text-decoration: line-through;
+                    color: gray;
+                }
+                .remove-task {
+                    margin-left: 10px;
+                    cursor: pointer;
+                }
 
     </style>
 </head>
@@ -323,11 +357,10 @@ margin-bottom: 16px;
       <h2>Profil Saya</h2>
       <a href="hari ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
       <a href="mendatang.html"><i class="fas fa-calendar-alt"></i> Mendatang</a>
-      <a href="#"><i class="fas fa-check"></i> Tugas Selesai</a>
+      <a href="tugas selesai.html"><i class="fas fa-check"></i> Tugas Selesai</a>
       <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
       <a href="#"><i class="fas fa-clock"></i> Waktu</a>
-      <a href="#"><i class="fas fa-users"></i> Kolaborasi</a>
-      <a href="mendatang.html"><i class="fas fa-users"></i> mendatang</a>
+      <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
   </div>
 
   <div class="content">
