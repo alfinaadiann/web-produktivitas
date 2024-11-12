@@ -34,7 +34,14 @@ const FeatureCard = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: none;
   margin-bottom: 20px; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
 `;
+
 
 const FeatureImage = styled.img`
   width: 50%;

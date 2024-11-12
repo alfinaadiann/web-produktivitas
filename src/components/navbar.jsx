@@ -13,9 +13,11 @@ const NavbarContainer = styled.nav`
   margin: 0;
 `;
 
-const LogoContainer = styled.div`
+const LogoContainer = styled.a`
   display: flex;
   align-items: center;
+  cursor: pointer;
+  text-decoration: none; /* Menghapus garis bawah */
 `;
 
 const LogoImage = styled.img`
@@ -58,15 +60,14 @@ const LoginButton = styled.a`
 function Navbar() {
   return (
     <NavbarContainer>
-      <LogoContainer>
+      <LogoContainer href="/">
         <LogoImage src="/assets/logo/logo biru.svg" alt="Logo" />
         <Title>
           <ProText>Pro</ProText>
           <ActiveText>Active</ActiveText>
         </Title>
       </LogoContainer>
-      {/*page login taroh sini*/}
-      <LoginButton href="/login">Login</LoginButton>
+      <LoginButton href="landing page">Login</LoginButton>
     </NavbarContainer>
   );
 }

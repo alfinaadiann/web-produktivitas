@@ -50,7 +50,7 @@ const GradasiBawah = styled.div`
 
 function AboutProActive() {
   return (
-    <Section>
+    <Section id="tentang proactive">
       <GradasiAtas />
       <Image src="/assets/svg/gambar2.svg" alt="About ProActive" />
       <div>

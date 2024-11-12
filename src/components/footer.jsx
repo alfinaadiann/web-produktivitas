@@ -53,13 +53,18 @@ const Header = styled.h3`
 
 const IconSosmed = styled.div`
   display: flex;
-  gap: 0.5em;
+  gap: 1.5em;
   margin-top: 1em;
 `;
 
-const SocialIcon = styled.div`
+const SocialIcon = styled.a`
   font-size: 24px;
   color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: #ddd;
+  }
 `;
 
 const LinkGroup = styled.div`
@@ -70,8 +75,14 @@ const LinkGroup = styled.div`
   margin-left: 5em;
 `;
 
-const Link = styled.p`
+const Link = styled.a`
   font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const Title = styled.h1`
@@ -89,7 +100,7 @@ const ProactiveText = styled.span`
 const FooterLinkTitle = styled.h4`
   font-size: 19px;
   font-weight: bold;
-  margin-top: 3em;
+  margin-top: 1.5em;
   margin-bottom: 0.5em;
 `;
 
@@ -116,27 +127,37 @@ function Footer() {
         <Header>ProActive Tim</Header>
 
         <IconSosmed>
-          <SocialIcon as={FaInstagram} title="Instagram" />
-          <SocialIcon as={FaFacebook} title="Facebook" />
-          <SocialIcon as={FaLinkedinIn} title="LinkedIn" />
-          <SocialIcon as={FaTiktok} title="TikTok" />
-          <SocialIcon as={FaXTwitter} title="Twitter" />
+          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Instagram">
+            <FaInstagram />
+          </SocialIcon>
+          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Facebook">
+            <FaFacebook />
+          </SocialIcon>
+          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+            <FaLinkedinIn />
+          </SocialIcon>
+          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="TikTok">
+            <FaTiktok />
+          </SocialIcon>
+          <SocialIcon href="isi disini" target="_blank" rel="noopener noreferrer" title="Twitter">
+            <FaXTwitter />
+          </SocialIcon>
         </IconSosmed>
       </LogoAndTitle>
 
       <div style={{ display: 'flex', flexDirection: 'row' }}>
         <LinkGroup>
           <FooterLinkTitle>ProActive</FooterLinkTitle>
-          <Link>Tentang ProActive</Link>
+          <Link href="tentang proactive">Tentang ProActive</Link>
         </LinkGroup>
 
         <LinkGroup>
           <FooterLinkTitle>Temui ProActive</FooterLinkTitle>
-          <Link>hari ini</Link>
-          <Link>mendatang</Link>
-          <Link>kalender</Link>
-          <Link>kolaborasi</Link>
-          <Link>waktu</Link>
+          <Link href="#">hari ini</Link>
+          <Link href="#">mendatang</Link>
+          <Link href="#">kalender</Link>
+          <Link href="#">kolaborasi</Link>
+          <Link href="#">waktu</Link>
         </LinkGroup>
       </div>
     </FooterContainer>

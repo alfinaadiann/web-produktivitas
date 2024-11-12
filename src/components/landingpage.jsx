@@ -75,7 +75,7 @@ function LandingPage() {
   
 
   return (
-    <Header>
+    <Header id="landing-page">
       <Title>
         <TitleSpanBlack>Satu Daftar,</TitleSpanBlack><br />
         <TitleSpanBlack>Semua </TitleSpanBlack>
@@ -86,7 +86,8 @@ function LandingPage() {
         mudah di satu tempat. Hanya di ProActive
       </Paragraph>
 
-      <Button href="/login">Lesgoo, Mari Mulai</Button>
+      <Button onClick={() => window.location.href = '#'}>Lesgoo, Mari Mulai </Button>
+
       <BottomGradient />
     </Header>
   );
