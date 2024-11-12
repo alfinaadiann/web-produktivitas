@@ -1,0 +1,327 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+  }
+  
+  /* Body styling */
+  body {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh;
+    background-image: url(.img/bgweb.jpeg);
+    color: #333;
+    background-repeat: no-repeat;
+    background-size: cover; 
+    padding-right: 0; 
+    padding-top: 100px;
+    gap: 0; 
+    overflow: hidden;
+  }
+  
+  /* Sidebar styling */
+  .sidebar {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    color: #fff;
+    width: 350px;
+    height: 1024px;
+    min-width: 232px;
+    max-width: 350px;
+    padding: 71px 14px;
+    background: rgba(9, 31, 91, 0.5);
+    box-shadow: 10px 0px 50px 5px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(25px);
+  }
+  
+  .sidebar a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+  
+  .sidebar a:hover {
+    background-color: #3a4e7b;
+  }
+  
+  .sidebar .icon {
+    font-size: 20px;
+  }
+  
+  /* Profile section styling */
+  .profile-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .profile-card {
+    background-color: #d0e4ff;
+    border-radius: 20px;
+    padding: 40px;
+    width: 600px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: large;
+  }
+  
+  .profile-card h2 {
+    font-size: 28px;
+    color: #23395d;
+    margin-bottom: 10px;
+  }
+  
+  .profile-card img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    margin-bottom: 15px;
+  }
+  
+  .profile-card p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .profile-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: large;
+  }
+  
+  .input-group {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .input-group div {
+    flex: 1;
+  }
+  
+  .profile-card input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+  }
+  
+  .profile-card .button-container {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .profile-card button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .edit-button {
+    background-color: #4a90e2;
+  }
+  
+  .edit-button:hover {
+    background-color: #357ab8;
+  }
+  
+  .delete-button {
+    background-color: #e74c3c;
+  }
+  
+  .delete-button:hover {
+    background-color: #c0392b;
+  }
+  
+  .change-password-button {
+    background-color: #4a90e2;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s;
+  }
+  
+  .change-password-button:hover {
+    background-color: #357ab8;
+  }
+  
+  .editable {
+    border: 1px solid #007bff;
+    background-color: #f0f8ff;
+  }
+  
+  /* Modal container styling */
+  .modal {
+    display: none; 
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Modal content box */
+  .modal-content {
+    background-color: #e0f0ff; 
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  /* Modal header style */
+  .modal-content h2 {
+    margin-top: 0;
+    background-color: #23395d; 
+    color: #ffffff;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    text-align: center;
+  }
+  
+  /* Close button styling */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #ffffff;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: #ff4d4d; 
+  }
+  
+  /* Input styling */
+  .modal-content input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    box-sizing: border-box;
+  }
+  
+  /* Button styling */
+  .modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #1a73e8; 
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .modal-content button:hover {
+    background-color: #005bb5; 
+  }
+  
+  /* Text paragraph styling inside modal */
+  .modal-content p {
+    color: #333333;
+    margin: 15px 0;
+    text-align: center;
+  }
+  
+  @media (max-width: 768px) {
+    .sidebar {
+      max-width: 100%;
+      height: auto;
+      padding: 20px;
+      gap: 10px;
+    }
+    
+    .profile-card {
+      padding: 20px;
+      width: 95%;
+    }
+  
+    .profile-card h2 {
+      font-size: 22px;
+    }
+  
+    .profile-card img {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .input-group {
+      flex-direction: column;
+    }
+  
+    .sidebar a {
+      font-size: 16px;
+      gap: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      padding: 10px;
+    }
+  
+    .profile-card {
+      padding: 15px;
+      width: 100%;
+    }
+  
+    .profile-card h2 {
+      font-size: 20px;
+    }
+  
+    .profile-card img {
+      width: 60px;
+      height: 60px;
+    }
+  
+    .profile-card p {
+      font-size: 14px;
+    }
+  
+    .sidebar a {
+      font-size: 14px;
+    }
+  }
