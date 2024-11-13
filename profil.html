@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Saya</title>
+    <link rel="stylesheet" href="profil.css" />
+    <script src="profil.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <a href="profil.html"
+        ><span class="icon"><img src=".img/Profil.png" alt="Profil" /></span> Profil
+        Saya</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Hari ini.png" alt="Hari Ini" /></span> Hari Ini</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Mendatang.png" alt="Mendatang" /></span>
+        Mendatang</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Tugas Selesai.png" alt="Tugas Selesai" /></span> Tugas
+        Selesai</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Kalender.png" alt="Kalender" /></span> Kalender</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Waktu.png" alt="Waktu" /></span> Waktu</a
+      >
+      <a href="#"
+        ><span class="icon"><img src=".img/Kolaborasi.png" alt="Kolaborasi" /></span>
+        Kolaborasi</a
+      >
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-card">
+        <img src=".img/Profil.png" alt="Profile Picture" />
+        <h2>Jane Doe</h2>
+        <p>janedoe@gmail.com</p>
+        <form id="profile-form">
+          <div style="display: flex; gap: 10px">
+            <div style="width: 100%">
+              <label>Nama Lengkap</label>
+              <input type="text" id="fullname" value="Jane Doe" readonly />
+            </div>
+            <div style="width: 100%">
+              <label>Nama Pengguna</label>
+              <input type="text" id="username" value="janedoe" readonly />
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px">
+            <div style="width: 100%">
+              <label>E-mail</label>
+              <input
+                type="email"
+                id="email"
+                value="janedoe@gmail.com"
+                readonly
+              />
+            </div>
+            <div style="width: 100%">
+              <label>No. Telepon</label>
+              <input type="tel" id="phone" value="081234567890" readonly />
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="button" class="edit-button" id="edit-btn">
+              Edit
+            </button>
+            <button type="button" class="delete-button" id="delete-btn">
+              Hapus Akun
+            </button>
+          </div>
+          <button
+            type="button"
+            class="edit-button"
+            style="width: 100%; margin-top: 10px"
+            id="change-password"
+          >
+            Ganti Kata Sandi
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('changePasswordModal')"
+          >&times;</span
+        >
+        <h2>Ganti Kata Sandi</h2>
+        <input type="password" id="oldPassword" placeholder="Kata Sandi Lama" />
+        <input
+          type="password"
+          id="newPassword"
+          placeholder="Kata Sandi Baru"
+        />
+        <input
+          type="password"
+          id="confirmNewPassword"
+          placeholder="Konfirmasi Kata Sandi Baru"
+        />
+        <button onclick="changePassword()">Ganti Kata Sandi</button>
+      </div>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteAccountModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('deleteAccountModal')"
+          >&times;</span
+        >
+        <h2>Hapus Akun</h2>
+        <p>
+          Tindakan ini dapat mengakibatkan riwayat tugasmu terhapus permanen.
+          Apakah Anda yakin?
+        </p>
+        <input
+          type="password"
+          id="passwordConfirmation"
+          placeholder="Masukkan Password"
+        />
+        <button onclick="confirmDeleteAccount()">Hapus Akun</button>
+      </div>
+    </div>
+  </body>
+</html>
