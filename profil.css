@@ -9,47 +9,42 @@
   /* Body styling */
   body {
     display: flex;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-image: url(.img/bgweb.jpeg);
+    background-image: url(bgweb.jpeg);
     color: #333;
     background-repeat: no-repeat;
-    background-size: cover; 
-    padding-right: 0; 
-    padding-top: 100px;
-    gap: 0; 
+    background-size: cover;
     overflow: hidden;
+    padding-top: 50px; 
   }
   
   /* Sidebar styling */
   .sidebar {
-    width: 250px;
+    width: 250px; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px; 
     color: #fff;
-    width: 350px;
-    height: 1024px;
-    min-width: 232px;
-    max-width: 350px;
-    padding: 71px 14px;
+    padding:40px 10px; 
     background: rgba(9, 31, 91, 0.5);
-    box-shadow: 10px 0px 50px 5px rgba(0, 0, 0, 0.7);
-    backdrop-filter: blur(25px);
+    box-shadow: 10px 0px 30px 5px rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(20px);
   }
   
+  /* Sidebar links styling */
   .sidebar a {
     text-decoration: none;
     color: #fff;
-    font-size: 20px;
+    font-size: 15px; 
     width: 100%;
-    padding: 10px;
+    padding: 6px; 
     display: flex;
     align-items: center;
-    gap: 15px;
-    border-radius: 10px;
+    gap: 10px;
+    border-radius: 6px;
     transition: background 0.3s;
   }
   
@@ -58,7 +53,7 @@
   }
   
   .sidebar .icon {
-    font-size: 20px;
+    font-size: 1px;
   }
   
   /* Profile section styling */
@@ -67,47 +62,49 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: large;
   }
   
   .profile-card {
     background-color: #d0e4ff;
-    border-radius: 20px;
-    padding: 40px;
-    width: 600px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    padding: 20px; 
+    width: 700px; 
+    height: 500px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
     text-align: center;
-    font-size: large;
+    font-size: medium;
   }
   
   .profile-card h2 {
-    font-size: 28px;
+    font-size: 20px; 
     color: #23395d;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
   }
   
   .profile-card img {
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
-    margin-bottom: 15px;
+    width: 80px;
+    height: 80px; 
+    margin-bottom: 10px;
   }
   
   .profile-card p {
     color: #555;
-    font-size: 16px;
-    margin-bottom: 30px;
+    font-size: 15px;
+    margin-bottom: 15px;
   }
   
   .profile-card form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    font-size: large;
+    gap: 10px; 
+    font-size: medium;
   }
   
   .input-group {
     display: flex;
-    gap: 20px;
+    gap: 10px; 
   }
   
   .input-group div {
@@ -116,27 +113,27 @@
   
   .profile-card input {
     width: 100%;
-    padding: 10px;
+    padding: 6px;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 6px;
+    font-size: 15px;
     color: #333;
     background-color: #fff;
   }
   
   .profile-card .button-container {
     display: flex;
-    gap: 20px;
+    gap: 10px; 
     width: 100%;
     justify-content: center;
   }
   
   .profile-card button {
-    padding: 10px;
+    padding: 6px; 
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     color: #fff;
-    font-size: 14px;
+    font-size: 13px;
     cursor: pointer;
     transition: background 0.3s;
   }
@@ -160,11 +157,11 @@
   .change-password-button {
     background-color: #4a90e2;
     width: 100%;
-    padding: 10px;
+    padding: 6px;
     border: none;
-    border-radius: 8px;
+    border-radius: 6px;
     color: #fff;
-    font-size: 14px;
+    font-size: 15px;
     cursor: pointer;
     margin-top: 10px;
     transition: background 0.3s;
@@ -197,10 +194,10 @@
   /* Modal content box */
   .modal-content {
     background-color: #e0f0ff; 
-    padding: 20px;
-    border-radius: 10px;
+    padding: 15px;
+    border-radius: 8px;
     width: 90%;
-    max-width: 400px;
+    max-width: 300px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     position: relative;
   }
@@ -210,20 +207,20 @@
     margin-top: 0;
     background-color: #23395d; 
     color: #ffffff;
-    padding: 10px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    padding: 8px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
     text-align: center;
+    font-size: 14px;
   }
   
   /* Close button styling */
   .close {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 8px;
+    right: 10px;
     color: #ffffff;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 20px;
     cursor: pointer;
   }
   
@@ -234,8 +231,8 @@
   /* Input styling */
   .modal-content input[type="password"] {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
+    padding: 8px;
+    margin: 8px 0;
     border-radius: 5px;
     border: 1px solid #ccc;
     background-color: #f5f5f5;
@@ -245,14 +242,14 @@
   /* Button styling */
   .modal-content button {
     width: 100%;
-    padding: 10px;
+    padding: 8px;
     background-color: #1a73e8; 
     color: #ffffff;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 14px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 8px;
   }
   
   .modal-content button:hover {
@@ -262,54 +259,23 @@
   /* Text paragraph styling inside modal */
   .modal-content p {
     color: #333333;
-    margin: 15px 0;
+    margin: 10px 0;
     text-align: center;
   }
   
   @media (max-width: 768px) {
     .sidebar {
-      max-width: 100%;
-      height: auto;
+      width: 100%;
       padding: 20px;
-      gap: 10px;
-    }
-    
-    .profile-card {
-      padding: 20px;
-      width: 95%;
-    }
-  
-    .profile-card h2 {
-      font-size: 22px;
-    }
-  
-    .profile-card img {
-      width: 70px;
-      height: 70px;
-    }
-  
-    .input-group {
-      flex-direction: column;
-    }
-  
-    .sidebar a {
-      font-size: 16px;
-      gap: 10px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .sidebar {
-      padding: 10px;
     }
   
     .profile-card {
       padding: 15px;
-      width: 100%;
+      width: 90%;
     }
   
     .profile-card h2 {
-      font-size: 20px;
+      font-size: 16px;
     }
   
     .profile-card img {
@@ -317,11 +283,40 @@
       height: 60px;
     }
   
-    .profile-card p {
-      font-size: 14px;
+    .input-group {
+      flex-direction: column;
     }
   
     .sidebar a {
-      font-size: 14px;
+      font-size: 12px;
     }
   }
+  
+  @media (max-width: 480px) {
+    .sidebar {
+      padding: 8px;
+    }
+  
+    .profile-card {
+      padding: 10px;
+      width: 100%;
+    }
+  
+    .profile-card h2 {
+      font-size: 14px;
+    }
+  
+    .profile-card img {
+      width: 50px;
+      height: 50px;
+    }
+  
+    .profile-card p {
+      font-size: 12px;
+    }
+  
+    .sidebar a {
+      font-size: 10px;
+    }
+  }
+  
