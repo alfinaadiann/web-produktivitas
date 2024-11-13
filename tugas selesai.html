@@ -143,7 +143,73 @@
         .add-task:hover {
             background-color: #A0C4FF;
         }
-        
+        .popup-calendar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+            background-color: #b3d1ff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 500px;
+            position: relative;
+        }
+
+        .popup-content h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .popup-content label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        .popup-content input, .popup-content textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .buttons .cancel {
+            background-color: #00aaff;
+            color: #fff;
+        }
+
+        .buttons .ok {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+
+
     </style>
 </head>
 <body>
@@ -162,6 +228,8 @@
     <div class="content">
         <h1>Semua Tugas</h1>
         <div class="task-container">
+            <div class="task-list">
+            </div>
             <!-- Hari Ini -->
             <style>
                 .task-item input[type="checkbox"] {
@@ -193,6 +261,8 @@
                     cursor: pointer;
                 }
             </style>
+             
+            
 
             <div class="task-category">Hari ini</div>
             <div class="task-item">
@@ -240,7 +310,57 @@
             </div>
         </div>
     </div>
+
+    
+    
+
+    <div id="popupCalendar" class="popup-calendar">
+        <div class="popup-content">
+            <h2>Tambah Tugas</h2>
+            <label for="taskName">Nama Tugas:</label>
+            <input type="text" id="taskName" />
+
+            <label for="taskDate">Tanggal:</label>
+            <input type="date" id="taskDate" />
+
+            <label for="taskTime">Waktu:</label>
+            <input type="time" id="taskTime" />
+
+            <div class="buttons">
+                <button class="cancel" onclick="closePopup()">Batal</button>
+                <button class="ok" onclick="addNewTask()">OK</button>
+            </div>
+        </div>
+    </div>
+
+
     <script>
+        function addNewTask() {
+            const taskName = document.getElementById('taskName').value;
+            const taskDate = document.getElementById('taskDate').value;
+            const taskTime = document.getElementById('taskTime').value;
+
+            if (taskName && taskDate && taskTime) {
+                const formattedTime = formatTimeToAMPM(taskTime);
+                const taskList = document.querySelector('.task-list');
+                const newTask = document.createElement('div');
+                newTask.classList.add('task-item');
+                newTask.innerHTML = `
+                    <div class="task-title">
+                <input type="checkbox" onclick="markAsCompleted(this)" />
+                ${taskName}
+            </div>
+            <div class="task-time">
+                ${taskDate}, ${formattedTime} 
+                <i class="fas fa-times remove-task" onclick="removeTask(this)"></i>
+            </div>
+        `;
+        
+        taskList.appendChild(newTask); // Tambahkan di bagian bawah list
+        closePopup(); // Tutup popup setelah tugas ditambahkan
+    }
+}
+
         function markAsCompleted(checkbox) {
             const taskItem = checkbox.closest('.task-item');
             taskItem.classList.toggle('completed', checkbox.checked);
@@ -249,6 +369,28 @@
         function removeTask(element) {
             const taskItem = element.closest('.task-item');
             taskItem.remove();
+        }
+
+        window.onload = function() {
+            document.getElementById('popupCalendar').style.display = 'none';
+        };
+
+
+        function closePopup() {
+            document.getElementById('popupCalendar').style.display = 'none';
+        }
+
+        document.querySelector('.add-task').addEventListener('click', function() {
+            document.getElementById('popupCalendar').style.display = 'flex';
+        });
+
+        function formatTimeToAMPM(time) {
+            const [hours, minutes] = time.split(':');
+            const hoursInt = parseInt(hours, 10);
+            const isPM = hoursInt >= 12;
+            const hours12 = hoursInt % 12 || 12;
+            const ampm = isPM ? 'PM' : 'AM';
+            return `${hours12}:${minutes} ${ampm}`;
         }
     </script>
 </body>
