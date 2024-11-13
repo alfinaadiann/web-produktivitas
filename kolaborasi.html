@@ -101,8 +101,9 @@
         font-size: 16px;
         cursor: pointer;
         transition: background-color 0.3s ease;
-      
-        bottom: 65px;  position: fixed;
+
+        bottom: 65px;
+        position: fixed;
         right: 100px;
         width: 65%;
         box-sizing: border-box;
@@ -172,6 +173,15 @@
         background-color: #1e90ff;
         cursor: pointer;
       }
+
+      #addButton.active:hover {
+        background-color: #004385;
+        cursor: pointer;
+      }
+
+      #addButton:hover {
+        background-color: #a3a3a3;
+      }
     </style>
   </head>
 
@@ -208,6 +218,7 @@
       </div>
     </div>
 
+    <!-- Pop Up Bagikan -->
     <div id="inviteModal" class="modal">
       <div class="modal-content">
         <h2 style="text-align: left">Bagikan Tugas</h2>
@@ -223,7 +234,6 @@
     </div>
 
     <script>
-
       function openModal() {
         document.getElementById("inviteModal").style.display = "block";
       }
@@ -239,22 +249,22 @@
         }
       };
 
-      document.getElementById("emailInput").addEventListener("input", function() {
-  const emailInput = document.getElementById("emailInput");
-  const addButton = document.getElementById("addButton");
-  
-  // Simple email validation
-  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  
-  if (emailPattern.test(emailInput.value)) {
-    addButton.classList.add("active");
-    addButton.disabled = false;
-  } else {
-    addButton.classList.remove("active");
-    addButton.disabled = true;
-  }
-});
+      document
+        .getElementById("emailInput")
+        .addEventListener("input", function () {
+          const emailInput = document.getElementById("emailInput");
+          const addButton = document.getElementById("addButton");
 
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (emailPattern.test(emailInput.value)) {
+            addButton.classList.add("active");
+            addButton.disabled = false;
+          } else {
+            addButton.classList.remove("active");
+            addButton.disabled = true;
+          }
+        });
     </script>
   </body>
 </html>
