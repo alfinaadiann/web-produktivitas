@@ -63,22 +63,22 @@
 
         .content {
             margin-left: 250px;
+            padding: 2% 6.5%;
             width: calc(100% - 250px);
-            padding: 50px;
         }
 
         .heading {
             font-size: 24px;
             font-weight: 600;
             color: white;
-            margin-bottom: 60px;
+            margin-top: 20px;
         }
 
         .task-board-container {
             display: flex;
             gap: 20px;
             overflow-x: auto;
-            margin-top: 50px;
+            margin-top: 30px;
         }
 
         .board {
@@ -102,16 +102,15 @@
         }
 
         .task-item {
-    background-color: #FFF9EF;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transition: background-color 0.3s ease;
-    
-}
+            background-color: #FFF9EF;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
 
         .task-item div {
             display: flex;
@@ -179,8 +178,8 @@
             cursor: pointer;
             color: #0a0a0a;
             position: absolute;
-            bottom: 10px;
-            right: 10px;
+            bottom: 40px;
+            right: 50px;
         }
 
         .add-board:hover {
@@ -331,7 +330,7 @@ margin-bottom: 16px;
 
     </style>
 </head>
-<body>
+<body onload="closePopup()">
 
   <div class="sidebar">
       <img alt="User Profile Picture" height="80" src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg" width="80"/>
@@ -346,7 +345,7 @@ margin-bottom: 16px;
 
   <div class="content">
       <div class="heading">7 Hari Mendatang</div>
-      <div class="task-board-container" id="boardContainer">
+        <div class="task-board-container" id="boardContainer">
           <!-- Senin -->
           <div class="board">
             <div class="board-header">Senin</div>
@@ -399,7 +398,6 @@ margin-bottom: 16px;
     </div>
 </div>
 
-<body onload="closePopup()"></body>
 
   <script>
     
