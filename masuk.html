@@ -28,13 +28,13 @@
         <h1>Selamat datang</h1>
         <p>Silahkan login terlebih dahulu untuk memulai</p>
 
-        <form id="login-form" action="login.html" method="post">
+        <form id="login-form">
             <label for="login-email">E-mail</label>
             <input type="email" id="login-email" name="email" placeholder="E-mail" required>
             <label for="login-password">Password</label>
             <input type="password" id="login-password" name="password" placeholder="Password" required>
             <a href="forgot_password.html" class="forgot-password">Lupa Password?</a>
-            <button type="submit" class="login-button">Login</button>
+            <button type="button" class="login-button" onclick="login()">Login</button>
           </form>
 
         <p class="register-link">Belum punya akun? <a href="daftar.html">Daftar disini</a></p>

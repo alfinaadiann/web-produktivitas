@@ -1,137 +1,270 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Semua Tugas</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kolaborasi</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background: url('image.png') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-        }
+      body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: url("image.png") no-repeat center center fixed;
+        background-size: cover;
+        display: flex;
+      }
 
-        .sidebar {
-            width: 250px;
-            height: 100vh;
-            background-color: rgba(9, 31, 91, 0.5);
-            color: white;
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 20px;
-        }
+      .sidebar {
+        width: 250px;
+        height: 100vh;
+        background-color: rgba(9, 31, 91, 0.5);
+        color: white;
+        position: fixed;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+      }
 
-        .sidebar img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            margin-bottom: 10px;
-        }
+      .sidebar img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
 
-        .sidebar h2 {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+      .sidebar h2 {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
 
-        .sidebar a {
-            text-decoration: none;
-            color: white;
-            font-size: 16px;
-            display: flex;
-            align-items: center;
-            width: 100%;
-            padding: 15px 20px;
-            box-sizing: border-box;
-            transition: background-color 0.3s ease;
-        }
+      .sidebar a {
+        text-decoration: none;
+        color: white;
+        font-size: 16px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        padding: 15px 20px;
+        box-sizing: border-box;
+        transition: background-color 0.3s ease;
+      }
 
-        .sidebar a:hover {
-            background-color: rgba(9, 31, 91, 0.7);
-            border-radius: 5px;
-        }
+      .sidebar a:hover {
+        background-color: rgba(9, 31, 91, 0.7);
+        border-radius: 5px;
+      }
 
-        .sidebar a i {
-            margin-right: 10px;
-        }
+      .sidebar a i {
+        margin-right: 10px;
+      }
 
-        .content {
-          margin-left: 300px;
-          padding: 20px;
-          width: calc(100% - 250px);
-        }
+      .content {
+        margin-left: 300px;
+        padding: 20px;
+        width: calc(100% - 250px);
+      }
 
-        .content h1 {
-          font-size: 16px;
-            color: rgb(0, 0, 0);
-            display: flex;
-            align-items: center;
-            background-color: #D0E4FF;
-            padding: 5px 20px;
-            margin-right: 20px;
-            border-radius: 20px;
-            width: fit-content;
-        }
+      .content h1 {
+        font-size: 16px;
+        color: rgb(0, 0, 0);
+        display: flex;
+        align-items: center;
+        background-color: #d0e4ff;
+        padding: 5px 20px;
+        margin-right: 20px;
+        border-radius: 20px;
+        width: fit-content;
+      }
 
-        .task-container {
-            width: 100%;
-            max-width: 850px;
-            height: 75vh;
-            background-color: #D0E4FF;
-            border-radius: 10px;
-            padding: 20px;
-        }
+      .task-container {
+        width: 90%;
+        height: 78vh;
+        background-color: #d0e4ff;
+        border-radius: 10px;
+        padding: 20px;
+      }
 
-        .add-task {
-            background-color: #FFF9EF;
-            border-radius: 10px;
-            padding: 10px;
-            text-align: center;
-            color: black;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            position: fixed;
-            bottom: 65px;
-            right: 85px;
-            width: calc(75% - 100px);
-            box-sizing: border-box;
-        }
+      .add-task {
+        background-color: #fff9ef;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        color: black;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
 
-        .add-task:hover {
-            background-color: #A0C4FF;
-        }
-        
+        bottom: 65px;
+        position: fixed;
+        right: 100px;
+        width: 65%;
+        box-sizing: border-box;
+      }
+
+      .add-task:hover {
+        background-color: #a0c4ff;
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+      }
+
+      .modal-content {
+        background-color: #d2eaff;
+        margin: 15% auto;
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        max-width: 40%;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal h2 {
+        font-size: 24px;
+        font-weight: bold;
+        color: #000;
+        margin-bottom: 15px;
+        margin-top: 2px;
+      }
+
+      .form-group {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #emailInput {
+        width: 70%;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #f9f9f9;
+        font-size: 16px;
+        color: #888;
+      }
+
+      #addButton {
+        margin-left: 10px;
+        padding: 10px 20px;
+        background-color: #c0c0c0;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: block;
+      }
+
+      #addButton.active {
+        background-color: #1e90ff;
+        cursor: pointer;
+      }
+
+      #addButton.active:hover {
+        background-color: #004385;
+        cursor: pointer;
+      }
+
+      #addButton:hover {
+        background-color: #a3a3a3;
+      }
     </style>
-</head>
-<body>
+  </head>
 
-  <div class="sidebar">
-    <img alt="User Profile Picture" height="80" src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg" width="80"/>
-    <h2>Profil Saya</h2>
-    <a href="hari ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
-    <a href="mendatang.html"><i class="fas fa-calendar-alt"></i> Mendatang</a>
-    <a href="tugas selesai.html"><i class="fas fa-check"></i> Tugas Selesai</a>
-    <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
-    <a href="#"><i class="fas fa-clock"></i> Waktu</a>
-    <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
-</div>
-
-    <div class="content">
-        <h1>Kolaborasi | &nbsp;<i class="fas fa-share-alt" style="margin-right: 10px;"></i> Bagikan</h1>
-        <div class="task-container">
-            
-            <!-- Add Task -->
-            <div class="add-task">
-                + Tambah tugas
-            </div>
-        </div>
+  <body>
+    <div class="sidebar">
+      <img
+        alt="User Profile Picture"
+        height="80"
+        src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg"
+        width="80"
+      />
+      <h2>Profil Saya</h2>
+      <a href="hari ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
+      <a href="mendatang.html"><i class="fas fa-calendar-alt"></i> Mendatang</a>
+      <a href="tugas selesai.html"
+        ><i class="fas fa-check"></i> Tugas Selesai</a
+      >
+      <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
+      <a href="pomodoro.html"><i class="fas fa-clock"></i> Waktu</a>
+      <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
     </div>
 
-</body>
+    <div class="content">
+      <h1 style="cursor: pointer" onclick="openModal()">
+        Kolaborasi | &nbsp;<i
+          class="fas fa-share-alt"
+          style="margin-right: 10px"
+        ></i>
+        Bagikan
+      </h1>
+      <div class="task-container">
+        <!-- Add Task -->
+        <div class="add-task">+ Tambah tugas</div>
+      </div>
+    </div>
+
+    <!-- Pop Up Bagikan -->
+    <div id="inviteModal" class="modal">
+      <div class="modal-content">
+        <h2 style="text-align: left">Bagikan Tugas</h2>
+        <div class="form-group">
+          <input
+            type="email"
+            id="emailInput"
+            placeholder="Tambahkan dengan email"
+          />
+          <button id="addButton" disabled>Tambahkan</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openModal() {
+        document.getElementById("inviteModal").style.display = "block";
+      }
+
+      function closeModal() {
+        document.getElementById("inviteModal").style.display = "none";
+      }
+
+      window.onclick = function (event) {
+        const modal = document.getElementById("inviteModal");
+        if (event.target === modal) {
+          closeModal();
+        }
+      };
+
+      document
+        .getElementById("emailInput")
+        .addEventListener("input", function () {
+          const emailInput = document.getElementById("emailInput");
+          const addButton = document.getElementById("addButton");
+
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+          if (emailPattern.test(emailInput.value)) {
+            addButton.classList.add("active");
+            addButton.disabled = false;
+          } else {
+            addButton.classList.remove("active");
+            addButton.disabled = true;
+          }
+        });
+    </script>
+  </body>
 </html>

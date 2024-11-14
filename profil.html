@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profil Saya</title>
+    <link rel="stylesheet" href="profil.css" />
+    <script src="profil.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"/>
+
+      <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: url('image.png') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+        }
+
+        .sidebar {
+            width: 250px;
+            height: 100vh;
+            background-color: rgba(9, 31, 91, 0.5);
+            color: white;
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .sidebar h2 {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: white;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 15px 20px;
+            box-sizing: border-box;
+            transition: background-color 0.3s ease;
+        }
+
+        .sidebar a:hover {
+            background-color: rgba(9, 31, 91, 0.7);
+            border-radius: 5px;
+        }
+
+        .sidebar a i {
+            margin-right: 10px;
+        }
+      </style>
+    
+  </head>
+  <body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img alt="User Profile Picture" height="80" src="https://i.pinimg.com/564x/d7/d0/13/d7d013aa4c1ee9bc96fc8ee329467d34.jpg" width="80"/>
+        <h2>Profil Saya</h2>
+        <a href="hari ini.html"><i class="fas fa-calendar-day"></i> Hari Ini</a>
+        <a href="mendatang.html"><i class="fas fa-calendar-alt"></i> Mendatang</a>
+        <a href="tugas selesai.html"><i class="fas fa-check"></i> Tugas Selesai</a>
+        <a href="#"><i class="fas fa-calendar"></i> Kalender</a>
+        <a href="pomodoro.html"><i class="fas fa-clock"></i> Waktu</a>
+        <a href="kolaborasi.html"><i class="fas fa-users"></i> Kolaborasi</a>
+    </div>
+
+    <!-- Profile Section -->
+    <div class="profile-section">
+      <div class="profile-card">
+        <img src=".img/Profil.png" alt="Profile Picture" />
+        <h2>Jane Doe</h2>
+        <p>janedoe@gmail.com</p>
+        <form id="profile-form">
+          <div style="display: flex; gap: 10px">
+            <div style="width: 100%">
+              <label>Nama Lengkap</label>
+              <input type="text" id="fullname" value="Jane Doe" readonly />
+            </div>
+            <div style="width: 100%">
+              <label>Nama Pengguna</label>
+              <input type="text" id="username" value="janedoe" readonly />
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 10px">
+            <div style="width: 100%">
+              <label>E-mail</label>
+              <input
+                type="email"
+                id="email"
+                value="janedoe@gmail.com"
+                readonly
+              />
+            </div>
+            <div style="width: 100%">
+              <label>No. Telepon</label>
+              <input type="tel" id="phone" value="081234567890" readonly />
+            </div>
+          </div>
+
+          <div class="button-container">
+            <button type="button" class="edit-button" id="edit-btn">
+              Edit
+            </button>
+            <button type="button" class="delete-button" id="delete-btn">
+              Hapus Akun
+            </button>
+          </div>
+          <button
+            type="button"
+            class="edit-button"
+            style="width: 100%; margin-top: 10px"
+            id="change-password"
+          >
+            Ganti Kata Sandi
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- Change Password Modal -->
+    <div id="changePasswordModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('changePasswordModal')"
+          >&times;</span
+        >
+        <h2>Ganti Kata Sandi</h2>
+        <input type="password" id="oldPassword" placeholder="Kata Sandi Lama" />
+        <input
+          type="password"
+          id="newPassword"
+          placeholder="Kata Sandi Baru"
+        />
+        <input
+          type="password"
+          id="confirmNewPassword"
+          placeholder="Konfirmasi Kata Sandi Baru"
+        />
+        <button onclick="changePassword()">Ganti Kata Sandi</button>
+      </div>
+    </div>
+
+    <!-- Delete Account Modal -->
+    <div id="deleteAccountModal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal('deleteAccountModal')"
+          >&times;</span
+        >
+        <h2>Hapus Akun</h2>
+        <p>
+          Tindakan ini dapat mengakibatkan riwayat tugasmu terhapus permanen.
+          Apakah Anda yakin?
+        </p>
+        <input
+          type="password"
+          id="passwordConfirmation"
+          placeholder="Masukkan Password"
+        />
+        <button onclick="confirmDeleteAccount()">Hapus Akun</button>
+      </div>
+    </div>
+  </body>
+</html>

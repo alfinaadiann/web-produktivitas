@@ -40,3 +40,18 @@ if (daftarForm) {
     window.location.href = "masuk.html"; // Arahkan ke halaman masuk
   });
 }
+
+function login() {
+  // Ambil nilai dari input email dan password
+  const email = document.getElementById('login-email').value;
+  const password = document.getElementById('login-password').value;
+  
+  // Lakukan validasi sederhana (opsional)
+  if (email && password) {
+      // Jika email dan password diisi, arahkan ke halaman "hari ini"
+      window.location.href = "hari ini.html";
+  } else {
+      alert("Silakan isi email dan password.");
+  }
+}
+
