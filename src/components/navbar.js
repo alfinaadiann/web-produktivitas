@@ -42,7 +42,7 @@ const ActiveText = styled.span`
 const LoginButton = styled.a`
   padding: 0.5em 1.5em;
   border: 2px solid #008CFF;
-  border-radius: 5px;
+  border-radius: 42px;
   background-color: transparent;
   color: #008CFF;
   cursor: pointer;
